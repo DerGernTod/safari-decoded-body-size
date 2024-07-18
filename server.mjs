@@ -1,7 +1,7 @@
 import http from 'http';
 import fs from 'fs/promises';
 
-const port = 3000;
+const port = 8080;
 
 http.createServer(async (req, res) => {
     const data = await fs.readFile('index.html', 'utf8');

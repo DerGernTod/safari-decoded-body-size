@@ -8,8 +8,13 @@
 <body>
     body
     <script>
-        const navtimings = performance.getEntriesByType("navigation")[0];
-        console.log("encoded: ", navtimings.encodedBodySize, ", decoded: ", navtimings.decodedBodySize);
+        const observer = new PerformanceObserver((entryList) => {
+            const navtimings = entryList.getEntriesByType("navigation")[0];
+            console.log("encoded: ", navtimings.encodedBodySize, ", decoded: ", navtimings.decodedBodySize);
+        });
+        observer.observe({
+            entryTypes: ["navigation"]
+        });
     </script>
 </body>
 </html>
